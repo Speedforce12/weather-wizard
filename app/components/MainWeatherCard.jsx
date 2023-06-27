@@ -4,7 +4,7 @@ import {WiHumidity} from "react-icons/wi"
 
 const MainWeatherCard = () => {
   return (
-    <div className='rounded-md bg-gradient-to-tr border border-blue-400 shadow-md from-blue-600 p-3 to-blue-300 flex flex-col items-center justify-center py-7'>
+    <section className='rounded-md bg-gradient-to-tr border border-blue-400 shadow-md from-blue-600 p-3 to-blue-300 flex flex-col items-center justify-center py-7'>
       <div className='flex items-center flex-col space-y-2'>
         <IoThunderstormOutline size={70} className='text-white' />
         <h2 className='text-white text-sm font-medium'>6/24/2023</h2>
@@ -27,7 +27,7 @@ const MainWeatherCard = () => {
           <p className='pl-2'>22 %</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

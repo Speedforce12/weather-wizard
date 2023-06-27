@@ -25,7 +25,7 @@ const CurrentWeatherPanel = ({ city, long, lat }) => {
 
       <MainWeatherCard />
 
-      <div className='bg-gradient-to-r my-5 shadow-md p-3 from-pink-300 to-pink-500 rounded-md space-y-4'>
+      <section className='bg-gradient-to-r my-5 shadow-md p-3 from-pink-300 to-pink-500 rounded-md space-y-4'>
         <div className='flex items-center justify-between'>
           <span className='flex items-center gap-2 font-bold text-white/80'>
             <WiSunrise size={35} className='text-white' /> Sunrise
@@ -39,7 +39,7 @@ const CurrentWeatherPanel = ({ city, long, lat }) => {
           </span>
           <p className='font-semibold text-white'>5:50 pm</p>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
