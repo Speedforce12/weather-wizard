@@ -7,7 +7,7 @@ import { WiSunrise, WiSunset } from "react-icons/wi";
 const CurrentWeatherPanel = ({ city, long, lat }) => {
   // bg-gradient-to-br from-[#164f95] to-[#0b2251]
   return (
-    <div className='w-full p-5 max-w-sm bg-gradient-to-br from-[#164f95] to-[#0b2251]'>
+    <div className='w-full p-5 lg:max-w-sm bg-gradient-to-br from-[#164f95] to-[#0b2251]'>
       <div className='flex items-center justify-between'>
         <ThemeSwitch />
         <UserAvatar />
