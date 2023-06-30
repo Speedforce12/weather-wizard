@@ -4,8 +4,6 @@ import MainWeatherCard from "./MainWeatherCard";
 import ThemeSwitch from "./ThemeSwitch";
 import { WiSunrise, WiSunset } from "react-icons/wi";
 
-
-
 async function getWeather({ lat, long }) {
   const data = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,windgusts_10m,uv_index,uv_index_clear_sky&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_max,uv_index_clear_sky_max&current_weather=true&timezone=auto`,
@@ -20,9 +18,8 @@ async function getWeather({ lat, long }) {
 }
 
 const CurrentWeatherPanel = async ({ city, long, lat }) => {
-    const weather = await getWeather({lat, long});
+  const weather = await getWeather({ lat, long });
 
-  // bg-gradient-to-br from-[#164f95] to-[#0b2251]
   return (
     <div className='w-full p-5 lg:max-w-sm bg-gradient-to-br from-[#164f95] to-[#0b2251]'>
       <div className='flex items-center justify-between'>
@@ -47,14 +44,26 @@ const CurrentWeatherPanel = async ({ city, long, lat }) => {
           <span className='flex items-center gap-2 font-bold text-white/80'>
             <WiSunrise size={35} className='text-white' /> Sunrise
           </span>
-          <p className='font-semibold text-white'>1:50 am</p>
+          <p className='font-semibold text-white'>
+            {new Date(weather.daily.sunrise[0]).toLocaleTimeString("en-US", {
+              hour: "numeric",
+              minute: "numeric",
+              hour12: true,
+            })}
+          </p>
         </div>
 
         <div className='flex items-center justify-between'>
           <span className='flex items-center gap-2 font-bold text-white/80'>
             <WiSunset size={35} className='text-white' /> Sunset
           </span>
-          <p className='font-semibold text-white'>5:50 pm</p>
+          <p className='font-semibold text-white'>
+            {new Date(weather.daily.sunset[0]).toLocaleTimeString("en-US", {
+              hour: "numeric",
+              minute: "numeric",
+              hour12: true,
+            })}
+          </p>
         </div>
       </section>
     </div>

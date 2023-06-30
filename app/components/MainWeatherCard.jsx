@@ -1,6 +1,5 @@
 import moment from "moment/moment";
 import { RiWindyFill } from "react-icons/ri";
-import { WiHumidity } from "react-icons/wi";
 import weatherCodes from "../libs/weatherCodes";
 import Image from "next/image";
 
