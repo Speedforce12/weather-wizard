@@ -1,6 +1,7 @@
 import CurrentWeatherPanel from "@/app/components/CurrentWeatherPanel";
 import DailyWeatherCard from "@/app/components/DailyWeatherCard";
 import Greeting from "@/app/components/Greeting";
+import HourlyTempChart from "@/app/components/HourlyTempChart";
 
 async function getWeather({ lat, long }) {
   const data = await fetch(
@@ -50,8 +51,12 @@ const CityPage = async ({ params: { lat, long, city } }) => {
       <CurrentWeatherPanel city={City} lat={lat} long={long} />
       <div className='flex flex-1 flex-col  mx-5 sm:mx-10'>
         <Greeting />
-        <div className='grid grid-cols-1 grid-flow-row md:grid-cols-3 xl:grid-cols-5 w-full mx-auto  gap-5 mb-5 mt-5 '>
+        <div className='grid grid-cols-1 grid-flow-row md:grid-cols-3 xl:grid-cols-4 w-full mx-auto  gap-5 mb-5 mt-5 '>
           {dailyCards}
+        </div>
+
+        <div className='flex lg:flex-row flex-col my-5'>
+          <HourlyTempChart weather={weather} />
         </div>
       </div>
     </div>

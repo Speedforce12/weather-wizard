@@ -4,7 +4,7 @@ import weatherCodes from "../libs/weatherCodes";
 import Image from "next/image";
 import { BsUmbrella } from "react-icons/bs";
 
-const DailyWeatherCard = ({ day, weathercode, high, low,wind,raining }) => {
+const DailyWeatherCard = ({ day, weathercode, high, low, wind, raining }) => {
   const weatherIcon = weatherCodes[weathercode].icon;
   return (
     <div className='shadow-sm max-w-sm w-full rounded-lg border border-rose-300 p-4 space-y-5  hover:scale-105 transition-transform duration-200 ease-in-out cursor-pointer'>
@@ -33,8 +33,10 @@ const DailyWeatherCard = ({ day, weathercode, high, low,wind,raining }) => {
           </div>
 
           <div className='flex items-center justify-center gap-3 w-16'>
-            <BsUmbrella size={22} className="fill-rose-400 mr-auto" />
-            <span className='font-medium text-sm text-gray-500'>{raining}%</span>
+            <BsUmbrella size={22} className='fill-rose-400 mr-auto' />
+            <span className='font-medium text-sm text-gray-500'>
+              {raining}%
+            </span>
           </div>
         </div>
         <p className='font-bold text-gray-600 text-lg'>{high}&deg;C</p>

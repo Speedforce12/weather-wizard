@@ -1,11 +1,9 @@
 import moment from "moment/moment";
 import { RiWindyFill } from "react-icons/ri";
 import weatherCodes from "../libs/weatherCodes";
-import Image from "next/image";
 import WeatherIcon from "./WeatherIcon";
 
 const MainWeatherCard = ({ currentWeather }) => {
-  // const weatherIcon = weatherCodes[currentWeather.weathercode].icon;
   return (
     <section className='rounded-md bg-gradient-to-tr border border-blue-400 shadow-md from-blue-600 p-3 to-blue-300 flex flex-col items-center justify-center py-7'>
       <div className='flex items-center flex-col space-y-2'>
