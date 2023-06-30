@@ -4,7 +4,24 @@ import MainWeatherCard from "./MainWeatherCard";
 import ThemeSwitch from "./ThemeSwitch";
 import { WiSunrise, WiSunset } from "react-icons/wi";
 
-const CurrentWeatherPanel = ({ city, long, lat }) => {
+
+
+async function getWeather({ lat, long }) {
+  const data = await fetch(
+    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,windgusts_10m,uv_index,uv_index_clear_sky&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_max,uv_index_clear_sky_max&current_weather=true&timezone=auto`,
+    {
+      next: {
+        revalidate: 60,
+      },
+    }
+  );
+
+  return await data.json();
+}
+
+const CurrentWeatherPanel = async ({ city, long, lat }) => {
+    const weather = await getWeather({lat, long});
+
   // bg-gradient-to-br from-[#164f95] to-[#0b2251]
   return (
     <div className='w-full p-5 lg:max-w-sm bg-gradient-to-br from-[#164f95] to-[#0b2251]'>
@@ -23,7 +40,7 @@ const CurrentWeatherPanel = ({ city, long, lat }) => {
         <CityPicker />
       </div>
 
-      <MainWeatherCard />
+      <MainWeatherCard currentWeather={weather.current_weather} />
 
       <section className='bg-gradient-to-r my-5 shadow-md p-3 from-pink-300 to-pink-500 rounded-md space-y-4'>
         <div className='flex items-center justify-between'>
