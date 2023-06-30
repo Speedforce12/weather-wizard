@@ -2,19 +2,14 @@ import moment from "moment/moment";
 import { RiWindyFill } from "react-icons/ri";
 import weatherCodes from "../libs/weatherCodes";
 import Image from "next/image";
+import WeatherIcon from "./WeatherIcon";
 
 const MainWeatherCard = ({ currentWeather }) => {
-  const weatherIcon = weatherCodes[currentWeather.weathercode].icon
+  // const weatherIcon = weatherCodes[currentWeather.weathercode].icon;
   return (
     <section className='rounded-md bg-gradient-to-tr border border-blue-400 shadow-md from-blue-600 p-3 to-blue-300 flex flex-col items-center justify-center py-7'>
       <div className='flex items-center flex-col space-y-2'>
-        <Image
-          src={`https://www.weatherbit.io/static/img/icons/${weatherIcon}.png`}
-          alt={weatherCodes[currentWeather.weathercode].label}
-          width={80}
-          height={80}
-        />
-
+        <WeatherIcon weather={currentWeather} />
         <h2 className='text-white text-sm font-medium'>
           {moment(currentWeather.time).format("MMMM D, YYYY")}
         </h2>
@@ -33,7 +28,6 @@ const MainWeatherCard = ({ currentWeather }) => {
           </span>
           <p className='pl-2'>{currentWeather.windspeed} km/h</p>
         </div>
-       
       </div>
     </section>
   );
