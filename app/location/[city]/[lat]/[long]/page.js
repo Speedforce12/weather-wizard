@@ -49,7 +49,7 @@ const CityPage = async ({ params: { lat, long, city } }) => {
   }
 
   return (
-    <div className='flex flex-col lg:flex-row bg-blue-50 min-h-screen'>
+    <div className='flex flex-col lg:flex-row bg-blue-50 dark:bg-black min-h-screen'>
       <CurrentWeatherPanel city={City} lat={lat} long={long} />
       <div className='flex flex-1 flex-col  mx-5 sm:mx-10'>
         <Greeting />

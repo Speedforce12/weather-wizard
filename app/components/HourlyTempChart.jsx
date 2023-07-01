@@ -20,8 +20,8 @@ const HourlyTempChart = ({ weather }) => {
 //   const dataFormatter = (number) => {`${number} °C`;}
 
   return (
-    <div className='p-5 shadow-sm rounded-md  bg-white w-full'>
-      <h3 className='text-black font-bold text-xl'>Temperature & UV Index</h3>
+    <Card>
+      <Title>Temperature & UV Index</Title>
       <AreaChart
         className='h-72 mt-4'
         data={chartData}
@@ -30,7 +30,7 @@ const HourlyTempChart = ({ weather }) => {
         colors={["indigo", "cyan"]}
         minValue={0}
       />
-    </div>
+    </Card>
   );
 };
 

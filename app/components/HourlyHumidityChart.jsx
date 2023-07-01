@@ -1,4 +1,4 @@
-import { AreaChart } from "@tremor/react";
+import { AreaChart, Card, Title } from "@tremor/react";
 
 
 const HourlyHumidityChart = ({weather}) => {
@@ -18,8 +18,8 @@ const HourlyHumidityChart = ({weather}) => {
   }));
 
   return (
-    <div className='p-5 shadow-sm rounded-md  bg-white w-full mb-5'>
-      <h3 className='text-black font-bold text-xl'>Hourly Humidity Forecast</h3>
+    <Card>
+      <Title>Hourly Humidity Forecast</Title>
       <AreaChart
         className='mt-6'
         data={chartData}
@@ -28,7 +28,7 @@ const HourlyHumidityChart = ({weather}) => {
         colors={["teal"]}
         yAxisWidth={40}
       />
-    </div>
+    </Card>
   );
 };
 
