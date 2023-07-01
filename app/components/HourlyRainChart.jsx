@@ -1,6 +1,6 @@
 import { Card, Title, AreaChart } from "@tremor/react";
 
-const HourlyTempChart = ({ weather }) => {
+const HourlyRainChart = ({ weather }) => {
   // Extract the relevant data from the JSON and create an array of objects
   const dataArray = weather.hourly.time
     .map((time) =>
@@ -13,25 +13,24 @@ const HourlyTempChart = ({ weather }) => {
 
   const chartData = dataArray.map((hour, i) => ({
     hour: Number(hour),
-    "Temperature °C": weather.hourly.temperature_2m[i],
-    "UV Index": weather.hourly.uv_index[i],
+    "Precipitation %": weather.hourly.precipitation_probability[i],
   }));
 
 //   const dataFormatter = (number) => {`${number} °C`;}
 
   return (
     <div className='p-5 shadow-sm rounded-md  bg-white w-full'>
-      <h3 className='text-black font-bold text-xl'>Temperature & UV Index</h3>
+      <h3 className='text-black font-bold text-xl'>Chances of rain</h3>
       <AreaChart
         className='h-72 mt-4'
         data={chartData}
         index='hour'
-        categories={["Temperature °C", "UV Index"]}
-        colors={["indigo", "cyan"]}
+        categories={["Precipitation %"]}
+        colors={["fuchsia"]}
         minValue={0}
       />
     </div>
   );
 };
 
-export default HourlyTempChart;
+export default HourlyRainChart;
